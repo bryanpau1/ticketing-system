@@ -96,7 +96,7 @@ $(document).ready(function(){
 function showTable(){
 	$.ajax({
 		type: 'POST',
-		url: 'user-fetch.php',
+		url: 'fetch.php',
 		data: {
 			fetch: 1
 		},
