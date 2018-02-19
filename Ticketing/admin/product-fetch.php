@@ -1,0 +1,35 @@
+<?php
+	include('conn.php');
+	if(isset($_POST['fetch'])){
+		?>
+		    <div class="table-responsive">
+		<table class="table table-striped table-hover">
+			<thead>
+				<th style="padding-right: 100px;">Department</th >
+				<th style="text-align: center;">Action</th>
+			
+			</thead>
+			<tbody>
+			<?php
+				$query=$conn->query("select * from `product`");
+				while($row=$query->fetch_array()){
+					?>
+					<tr>
+						<td><span id="product_name<?php echo $row['product_id']; ?>"><?php echo $row['product_name']; ?></span></td>
+						<td align="center">
+							<a style="cursor:pointer;" class="btn btn-info edit" data-id="<?php echo $row['product_id']; ?>"><span class="glyphicon glyphicon-edit"></span></a> || 
+							<a style="cursor:pointer;" class="btn btn-danger delete" data-id="<?php echo $row['product_id']; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+						</td>
+					</tr>
+					<?php
+				}
+			
+			?>
+			</tbody>
+		</table>
+	</div>
+		<?php
+	}
+?>
+
+
